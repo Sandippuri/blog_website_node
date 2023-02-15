@@ -13,11 +13,11 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ origin: "*" }));
 // connect to db
-const connectDB = async () => {
+const connectDB = () => {
   try {
-    await mongoose.connect(process.env.MONGO_URL, {
-      useUnifiedTopology: true,
+    mongoose.connect(process.env.MONGO_URL, {
       useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
   } catch (err) {
     console.error(err);
